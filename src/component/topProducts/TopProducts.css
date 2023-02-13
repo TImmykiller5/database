@@ -1,0 +1,80 @@
+.main2{
+    height: 100%;
+    border-radius: 15px;
+    padding: 4px;
+    margin: 10px;
+    color: aliceblue;
+    line-height: 1rem;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 7fr 3fr;
+
+}
+
+.top-products{
+    border-radius: 15px;
+    background-color: #2B2B36;
+    padding: 0px 10px 0px 10px;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    
+
+}
+
+.top-list{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    
+}
+
+.customer-fulfilment{
+    background-color: #2B2B36;
+    border-radius: 15px;
+    padding: 0px 10px 0px 10px;
+
+}
+
+.top-list-item{
+    border-top: solid #343443 1px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 13fr 33fr 41fr 13fr;
+    
+}
+
+.Sales-box{
+    background-color: var(--bgcolor);
+    border: 1px solid var(--color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 2rem;
+    
+}
+
+.top-list-numbering{
+    display: grid;
+    grid-template-columns: 13fr 33fr 41fr 13fr;
+    color: #86878c;
+}
+.Product-popularity{
+    width: 80%;
+    background-color: #393946;
+    border-radius: 10px;
+    
+}
+
+.bar{
+    
+    height: 0.3rem;
+    background-color: var(--color);
+    width: var(--barWidth);
+    border-radius: 10px;
+
+}
+
+.progress{
+    width: fit-content;
+}

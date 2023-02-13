@@ -1,0 +1,49 @@
+h2{
+    color: aliceblue;
+}
+
+.main1{
+    height: 100%;
+    padding: 4px;
+    margin: 10px;
+    color: aliceblue;
+    line-height: 1rem;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-column-gap: 20px;
+}
+
+.sales-boxes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
+}
+
+.sales-item{
+    max-width: 100%;
+    padding: 5px;
+    grid-gap: 0px;
+    background-color: #171821;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    
+}
+
+.level{
+    padding: 100px 0px 0px 10px;
+    background-color: #2B2B36;
+    border-radius: 15px;
+    
+
+
+}
+.saleSummary{
+    background-color: #2B2B36;
+    border-radius: 15px;
+    padding: 0px 10px 0px 10px;
+
+}
+
+.semicircle-percent-value{
+    font-size: 50px;
+}

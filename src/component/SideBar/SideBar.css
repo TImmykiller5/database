@@ -1,0 +1,12 @@
+
+.side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    color: #87888C;
+    background-color: #171821;
+    font-size: 13px;
+    width: 100%;
+    border-right:1px grey solid ;
+}

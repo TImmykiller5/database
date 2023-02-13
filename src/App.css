@@ -1,0 +1,27 @@
+html, body{
+  margin: 0;
+  height: 100%;
+
+}
+
+.layout{
+  /* grid-template-columns: 1fr 9fr; */
+  width: 100vw;
+  margin: 10px 10px 10px 10px;
+  display: flex;
+}
+
+.outlet{
+  flex: 9;
+  height: 100vh;
+  background-color: #171821;
+  position: relative;
+  
+}
+
+.sidebar{
+flex: 1;
+position: fixed;
+height: 100vh;
+left:0;
+}

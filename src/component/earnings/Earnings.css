@@ -1,0 +1,33 @@
+.eCont{
+    height: 100%;
+    padding: 4px;
+    color: aliceblue;
+    line-height: 1rem;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    grid-column-gap: 20px;
+    margin: 0px 10px 0px 0px;
+
+}
+
+.semicircle-percent-value{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.earning{
+    display: flex;
+    flex-direction: column;
+    background-color:#2B2B36;
+    border-radius: 15px;
+    padding: 10px 10px 0px 10px;
+    height: 90%;
+
+}
+.insight{
+    background-color:#2B2B36;
+    border-radius: 15px;
+    padding: 10px 10px 0px 10px;
+    height: 90%;
+
+}

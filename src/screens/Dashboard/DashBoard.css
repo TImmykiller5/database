@@ -1,0 +1,28 @@
+.dash{
+    /* display: grid;
+    grid-template-columns: 1fr 7fr; */
+    background-color: #171821;
+    grid-column-gap: 1rem;
+
+}
+
+
+.dash-item-1{
+    color: black;
+    display: flex;
+    border-right: 1.5px solid #2C2D33;
+}
+
+.main-view{
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    
+
+}
+
+.data{
+    display: grid;
+    grid-template-rows: 29.6fr 33.7fr 36.7fr;
+    min-height: 100%;
+    grid-gap: 40px;
+}
