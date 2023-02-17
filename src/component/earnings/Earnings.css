@@ -1,12 +1,12 @@
 .eCont{
     height: 100%;
-    padding: 4px;
+    /* padding: 4px 4px 0px 4px; */
     color: aliceblue;
     line-height: 1rem;
     display: grid;
     grid-template-columns: 3fr 7fr;
     grid-column-gap: 20px;
-    margin: 0px 10px 0px 0px;
+    /* margin: 0px 10px 0px 0px; */
 
 }
 

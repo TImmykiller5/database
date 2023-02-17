@@ -4,8 +4,8 @@ h2{
 
 .main1{
     height: 100%;
-    padding: 4px;
-    margin: 10px;
+    /* padding: 4px; */
+    /* margin: 10px; */
     color: aliceblue;
     line-height: 1rem;
     display: grid;

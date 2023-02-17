@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Dashboard from './screens/Dashboard/Dashboard';
 import SideBar from './component/SideBar/SideBar';
+import AdminScreen from './screens/AdminScreen/AdminScreen';
 
 function App() {
   const Layout = () => {
@@ -28,6 +29,10 @@ function App() {
         {
           path: "/",
           element: <Dashboard/>
+        },
+        {
+          path: "/admin",
+          element: <AdminScreen/>
         }
       ]
   }

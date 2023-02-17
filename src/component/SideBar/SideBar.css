@@ -7,6 +7,18 @@
     color: #87888C;
     background-color: #171821;
     font-size: 13px;
-    width: 100%;
-    border-right:1px grey solid ;
+    width:auto;
+    padding: 0px 20px 0px 20px;
+
+}
+
+.side-items{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.link{
+    text-decoration: none;
+    color: #87888C;
 }
