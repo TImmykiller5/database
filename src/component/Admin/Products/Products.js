@@ -17,8 +17,9 @@ function Products({ open, set }) {
   }, [dispatch]);
 
   // const ref = useRef();
+  return(
   products ? (
-  return (
+   
     <div>
       <div className="products">
         <div className="Products-main">
@@ -44,7 +45,7 @@ function Products({ open, set }) {
             <div>Expiry Date</div>
             <div>Availability</div>
           </div>
-          {products ? (
+         
           <div className="products-list">
             
             {products.map((product) => (
@@ -61,15 +62,15 @@ function Products({ open, set }) {
             ))}
             
           </div>
-          ):(<div>no</div>)}
+          
         </div>
       </div>
     </div>
-  );
-  ):(
-    return(
-    <div>no</div>)
   )
+  :(
+    
+    <div>no</div>
+  ))
 }
 
 export default Products;
