@@ -1,0 +1,42 @@
+.products{
+    display: grid;
+    grid-template-rows: 1fr 9fr ;
+    background-color: #21222D;
+    padding: 10px;
+    
+
+}
+
+.Products-main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Products-container{
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+}
+
+.products-header{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    color: #7d7d7d;
+
+}
+
+.products-list{
+    display: grid;
+    grid-template-rows: repeat(11, 1fr);
+
+}
+
+.products-indi{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+}
+
+.product-button{
+    margin: 0.67em;
+}
+

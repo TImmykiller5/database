@@ -18,14 +18,14 @@
 .earning{
     display: flex;
     flex-direction: column;
-    background-color:#2B2B36;
+    background-color:#21222D;
     border-radius: 15px;
     padding: 10px 10px 0px 10px;
     height: 90%;
 
 }
 .insight{
-    background-color:#2B2B36;
+    background-color:#21222D;
     border-radius: 15px;
     padding: 10px 10px 0px 10px;
     height: 90%;

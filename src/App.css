@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 
+
 html, body{
   margin: 0;
   font-family: 'Inter' sans-serif;
   background-color: #171821;
+  color: aliceblue;
 
 }
 
@@ -31,4 +33,27 @@ top: 0;
 left: 0;
 border-right: 1.5px #2C2D33 solid;
 width: auto;
+}
+
+button:hover{
+  background-color: #1366D9;
+  border: 1px solid #1366D9;
+
+
+}
+
+button{
+  background-color: #21222D;
+  border: 1px solid #7d7d7d;
+  color: aliceblue;
+  margin: 5px;
+  font-size: 1rem;
+  padding: 10px 12px;
+  border-radius: 7px;
+
+}
+a{
+  text-decoration: none;
+  color: aliceblue
+  ;
 }

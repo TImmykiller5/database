@@ -1,13 +1,13 @@
 .adminCont{
-    height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
+    grid-template-rows: 0.237fr 0.763fr;
+    gap: 20px;
+    
 
 }
 
 .adminPanels{
-    background-color: #2B2B36;
+    height: 100%;
+    
 
 }

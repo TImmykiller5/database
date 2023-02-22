@@ -11,7 +11,6 @@ function Dashboard() {
       <div className='dash'>
         
         <div className='Main-View'>
-          <p>hello</p>
           <div className='data'>
           <div> <TodaySales/> </div>
           <div> <TopProducts/> </div>

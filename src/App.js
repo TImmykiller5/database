@@ -10,13 +10,20 @@ import {
 import Dashboard from './screens/Dashboard/Dashboard';
 import SideBar from './component/SideBar/SideBar';
 import AdminScreen from './screens/AdminScreen/AdminScreen';
+import Search from './component/search/Search';
+import ProductScreen from './screens/products/ProductScreen/ProductScreen';
 
 function App() {
   const Layout = () => {
     return(
       <div className='layout'>
+
         <div className='sidebar'><SideBar/></div>
-       <div className='outlet'> <Outlet/></div>
+       <div className='outlet'>
+
+        <Search/>
+         <Outlet/>
+       </div>
       </div>
     )
   }
@@ -31,8 +38,12 @@ function App() {
           element: <Dashboard/>
         },
         {
-          path: "/admin",
+          path: "/admin/",
           element: <AdminScreen/>
+        },
+        {
+          path: "/product/:id/",
+          element: <ProductScreen/>
         }
       ]
   }

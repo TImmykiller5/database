@@ -13,7 +13,7 @@
 
 .top-products{
     border-radius: 15px;
-    background-color: #2B2B36;
+    background-color: #21222D;
     padding: 0px 10px 0px 10px;
     display: grid;
     grid-template-rows: 1fr 5fr;
@@ -28,7 +28,7 @@
 }
 
 .customer-fulfilment{
-    background-color: #2B2B36;
+    background-color: #21222D;
     border-radius: 15px;
     padding: 0px 10px 0px 10px;
 

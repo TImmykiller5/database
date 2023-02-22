@@ -1,0 +1,33 @@
+#edit-button{
+    display: flex;
+    width: auto;
+    gap: 7px;
+}
+
+.main{
+    display: grid;
+    grid-template-rows:1fr 10fr ;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.header-bottom{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    
+}
+
+.product-button{
+    display: flex;
+}
