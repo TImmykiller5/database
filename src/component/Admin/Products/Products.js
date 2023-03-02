@@ -9,16 +9,18 @@ import { Link } from "react-router-dom";
 
 function Products({ open, set }) {
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.inventory);
+  const productList = useSelector((state) => state.productList);
   const { error, loading, products } = productList;
 
   useEffect(() => {
     dispatch(getProducts());
+    console.log(productList)
   }, [dispatch]);
 
   // const ref = useRef();
   return(
-  products ? (
+  
+    (
    
     <div>
       <div className="products">
@@ -48,7 +50,7 @@ function Products({ open, set }) {
          
           <div className="products-list">
             
-            {products.map((product) => (
+            {products?.map((product) => (
               <div className="products-indi" key={product.id}>
                 <div>
                   <Link to={`/product/${product.id}`}>{product.name}</Link>
@@ -67,10 +69,9 @@ function Products({ open, set }) {
       </div>
     </div>
   )
-  :(
-    
-    <div>no</div>
-  ))
+
+  )
+
 }
 
 export default Products;

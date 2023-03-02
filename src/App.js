@@ -12,6 +12,7 @@ import SideBar from './component/SideBar/SideBar';
 import AdminScreen from './screens/AdminScreen/AdminScreen';
 import Search from './component/search/Search';
 import ProductScreen from './screens/products/ProductScreen/ProductScreen';
+import TransactionScreen from './screens/TransactionScreen/TransactionScreen';
 
 function App() {
   const Layout = () => {

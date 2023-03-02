@@ -10,11 +10,13 @@ import {
   PRODUCT_GET_FAIL,
 } from "../constants/productConstants";
 import axios from "axios";
+const proxy = "http://127.0.0.1:8000/"
+
 
 export const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
-    const { data } = await axios.get("db/products");
+    const { data } = await axios.get(`${proxy}db/products/`);
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
@@ -34,7 +36,7 @@ export const addProduct = (order) => async (dispatch) =>{
     try {
         dispatch({ type: PRODUCT_CREATE_REQUEST });
 
-        const { data } = await axios.post("db/add-product/",
+        const { data } = await axios.post(`${proxy}db/add-product/`,
             order);
 
         dispatch({
@@ -57,7 +59,7 @@ export const getProduct = (id) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_GET_REQUEST });
       console.log('db')
-      const { data } = await axios.get(`/db/get-product/${id}/`);
+      const { data } = await axios.get(`${proxy}db/get-product/${id}/`);
       dispatch({
         type: PRODUCT_GET_SUCCESS,
         payload: data,

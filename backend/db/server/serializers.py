@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Inventory, ProductType, Store
+from .models import Inventory, ProductType, Store, SalesRecord
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,7 +22,6 @@ class InventorySerializer (serializers.ModelSerializer):
 
 class ProductsTypeSerializer(serializers.ModelSerializer):
     quantity = serializers.SerializerMethodField(read_only=True)
-    # products = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = ProductType
@@ -30,15 +29,13 @@ class ProductsTypeSerializer(serializers.ModelSerializer):
 
     def get_quantity(self, obj):
         products = obj.inventory_set.all()
+        
         quantity = 0
         for product in products:
             quantity += product.quantity
         return quantity
     
-    # def get_products(self, obj):
-    #     products = obj.inventory_set.all()
-    #     serializers = InventorySerializer(products, many=True)
-    #     return serializers.data
+    
 
 
 class StoreSerializer(serializers.ModelSerializer):
@@ -46,9 +43,25 @@ class StoreSerializer(serializers.ModelSerializer):
         model = Store
         fields = '__all__'
 
+class TransactionSerializer(serializers.ModelSerializer):
+    ProductName = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = SalesRecord
+        fields = '__all__'
+    
+    def get_ProductName(self, obj):
+            products = obj.productType
+            serializers = ProductsTypeSerializer(products, many=False)
+            return serializers.data['name']
+
 
 class ProductTypeSerializer(serializers.ModelSerializer):
     inventory = serializers.SerializerMethodField(read_only=True)
+    quantity = serializers.SerializerMethodField(read_only=True)
+    store = serializers.SerializerMethodField(read_only=True)
+
+    
 
     class Meta:
         model = ProductType
@@ -59,3 +72,16 @@ class ProductTypeSerializer(serializers.ModelSerializer):
         products = obj.inventory_set.all()
         serializers = InventorySerializer(products, many=True)
         return serializers.data
+
+    def get_quantity(self, obj):
+        products = obj.inventory_set.all()
+        quantity = 0
+        for product in products:
+            quantity += product.quantity
+        return quantity
+    
+    def get_store(self, obj):
+        store = Store.objects.all()
+        serializers = StoreSerializer(store, many=True)
+        return serializers.data
+    

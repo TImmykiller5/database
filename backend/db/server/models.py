@@ -34,8 +34,9 @@ class Inventory(models.Model):
 class SalesRecord(models.Model):
     productType = models.ForeignKey(ProductType, on_delete=models.CASCADE, null=True)
     quantity =  models.IntegerField(null=True, blank=True, default=0)
+    transactionType = models.CharField(max_length=200, null=True, blank=True)
     transactionDate = models.DateTimeField(auto_now_add=False, null=True, blank=True)
     store = models.ForeignKey(Store, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.productType
+        return self.productType.name

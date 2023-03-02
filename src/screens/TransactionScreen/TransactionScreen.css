@@ -1,0 +1,136 @@
+.transaction-form{
+    /* background-color: #171821; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* width: 30vw; */
+
+    
+}
+
+.test-modal{
+   /* position: absolute;
+   overflow: hidden; */
+   /* height: 1vh; */
+   /* display: none; */
+   /* height: 0px;
+   width: 0px; */
+
+}
+
+.clicked-modal{
+    
+
+}
+
+.trans-main{
+    /* height: 1000px; */
+    /* padding: 0px; */
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dActive{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+    /* transition: ; */
+    /* position: relative; */
+    transition: all 2s ease-in,  opacity 1s ease;
+    max-height: 1000px;
+    overflow: hidden;
+
+
+}
+
+.dInactive{
+    content: 'hello';
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY();
+    /* position: absolute; */
+    max-height: 0px;
+    overflow: hidden;
+    transition:all 1.5s ease-out, opacity 1.5s ease-in;
+
+
+    /* height: 0px; */
+}
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+    gap: 1rem;
+    justify-content: space-between;
+
+}
+.form-inner-cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.form-submit{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: end; */
+    gap: 5px;
+    margin: 10px 0px 0px 0px;
+    
+    
+}
+.flex-form-control{
+    
+}
+
+.credit-trans{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    padding: 10px;
+    border: 1px solid #4ace7b;
+    background-color: #19bc55;
+}
+.debit-trans{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    padding: 10px 10px 18px 10px;
+    border: 1px solid #fa3333;
+    background-color: #bc1919;
+}
+.t-summary-cont{
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+}
+
+.transaction-record{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    padding: 10px 0px 10px 0px;
+
+}
+
+.transaction-record-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.sale-transaction{
+    color: #fa3333; 
+}
+
+.stock-transaction{
+    color: #19bc55;
+}
