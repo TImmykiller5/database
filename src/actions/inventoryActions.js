@@ -7,7 +7,7 @@ import {
   TRANSACTION_RECORD_FAIL,
 } from "../constants/inventoryConstants";
 import axios from "axios";
-const proxy = "http://127.0.0.1:8000/";
+const proxy = "https://web-production-bb6a7.up.railway.app/";
 
 export const postTransaction = (transaction) => async (dispatch) => {
   console.log(transaction);

@@ -10,7 +10,7 @@ import {
   PRODUCT_GET_FAIL,
 } from "../constants/productConstants";
 import axios from "axios";
-const proxy = "http://127.0.0.1:8000/"
+const proxy = "https://web-production-bb6a7.up.railway.app/"
 
 
 export const getProducts = () => async (dispatch) => {
