@@ -10,7 +10,7 @@ import {
   PRODUCT_GET_FAIL,
 } from "../constants/productConstants";
 import axios from "axios";
-const proxy = "https://web-production-a58f.up.railway.app/"
+const proxy = "http://127.0.0.1:8000/"
 
 
 export const getProducts = () => async (dispatch) => {
@@ -32,7 +32,7 @@ export const getProducts = () => async (dispatch) => {
   }
 };
 
-export const addProduct = (order) => async (dispatch) =>{
+export const addProduct = (order, set) => async (dispatch) =>{
     try {
         dispatch({ type: PRODUCT_CREATE_REQUEST });
 
@@ -42,23 +42,26 @@ export const addProduct = (order) => async (dispatch) =>{
         dispatch({
           type: PRODUCT_CREATE_SUCCESS,
           payload: data,
-        });
+        } );
+        set(false)
+        dispatch(getProducts())
 
       } catch (error) {
+
         dispatch({
           type: PRODUCT_CREATE_FAIL,
           payload:
-            error.response && error.response.data.message
-              ? error.response.data.message
+            error.response && error.response.data.detail
+              ? error.response.data.detail
               : error.message,
         });
+        set(true)
       }
 }
 
 export const getProduct = (id) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_GET_REQUEST });
-      console.log('db')
       const { data } = await axios.get(`${proxy}db/get-product/${id}/`);
       dispatch({
         type: PRODUCT_GET_SUCCESS,
@@ -66,6 +69,7 @@ export const getProduct = (id) => async (dispatch) => {
       });
     } catch (error) {
       dispatch({
+        
         type: PRODUCT_GET_FAIL,
         payload:
           error.response && error.response.data.message

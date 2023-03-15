@@ -67,7 +67,6 @@ function Overview({Product}) {
             <h4 className="deet-self">{product.name}</h4>
           </div>
           {product.inventory?.map((sto) => (
-            // console.log(sto)
             <div className="deet-cont">
             
             <p className="deet-header">{sto.store.name}</p>

@@ -5,6 +5,9 @@ import {
   TRANSACTION_RECORD_REQUEST,
   TRANSACTION_RECORD_SUCCESS,
   TRANSACTION_RECORD_FAIL,
+  TOP_PRODUCT_REQUEST,
+  TOP_PRODUCT_SUCCESS,
+  TOP_PRODUCT_FAIL,
 } from "../constants/inventoryConstants";
 
 export const postTransactionReducer = (state = {}, action) => {
@@ -39,6 +42,22 @@ export const transactionRecordReducer = (state = {record:[]}, action) => {
       return { loading: false, record: action.payload };
 
     case TRANSACTION_RECORD_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const TopProductReducer = (state = {topProduct:[]}, action) => {
+  switch (action.type) {
+    case TOP_PRODUCT_REQUEST:
+      return { loading: true, topProduct: [] };
+
+    case TOP_PRODUCT_SUCCESS:
+      return { loading: false, topProduct: action.payload };
+
+    case TOP_PRODUCT_FAIL:
       return { loading: false, error: action.payload };
 
     default:

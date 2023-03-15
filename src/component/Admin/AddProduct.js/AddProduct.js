@@ -3,14 +3,21 @@ import "./addProduct.css";
 import { useState } from "react";
 import { addProduct, getProducts } from "../../../actions/productAction";
 import { useDispatch } from "react-redux";
+import { PRODUCT_CREATE_RESET } from "../../../constants/productConstants";
+import { useSelector } from "react-redux";
 
 function AddProduct({ open, set }) {
+  const postResult = useSelector((state) => state.newProduct) 
+  const {loading, error, result} = postResult
   const dispatch = useDispatch()
   const[name, setName] = useState()
   const[brand, setBrand] = useState()
   const[BP, setBP] = useState()
   const[SP, setSP] = useState()
   if (!open) return null;
+
+  
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -19,22 +26,26 @@ function AddProduct({ open, set }) {
       brand:brand,
       costPrice:BP,
       sellingPrice:SP
-    }))
-    dispatch(getProducts());
-    set(false)
+    }, set))
+    // dispatch(getProducts());
+
+
   }
 
   return (
     <div
       className="overlay"
       onClick={() => {
-        set(false);
+          
+        set(false)
+        dispatch({type: PRODUCT_CREATE_RESET})
       }}
     >
       <div className="addProduct" onClick={(e) => e.stopPropagation()}>
         <div className="Add-Product-Cont">
           <div className="New-Product">
             {" "}
+            {error ? (<div className="add-product-error">{error}</div>):(<div></div>)}
             <h2>New Products</h2>
           </div>
           <div className="New-Product-Details">

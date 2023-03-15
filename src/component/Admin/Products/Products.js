@@ -14,7 +14,6 @@ function Products({ open, set }) {
 
   useEffect(() => {
     dispatch(getProducts());
-    console.log(productList)
   }, [dispatch]);
 
   // const ref = useRef();

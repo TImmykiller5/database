@@ -13,6 +13,14 @@ html, body{
   display: flex;
   column-gap: 20px;
 }
+.add-product-error{
+  color: antiquewhite;
+  background-color: red;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .outlet{
   flex: 100;

@@ -13,6 +13,7 @@ import AdminScreen from './screens/AdminScreen/AdminScreen';
 import Search from './component/search/Search';
 import ProductScreen from './screens/products/ProductScreen/ProductScreen';
 import TransactionScreen from './screens/TransactionScreen/TransactionScreen';
+import Store from './screens/store/Store';
 
 function App() {
   const Layout = () => {
@@ -45,6 +46,11 @@ function App() {
         {
           path: "/product/:id/",
           element: <ProductScreen/>
+        },
+        
+        {
+          path: "/stores",
+          element: <Store/>
         }
       ]
   }

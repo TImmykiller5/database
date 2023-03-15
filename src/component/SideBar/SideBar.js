@@ -63,7 +63,7 @@ function SideBar() {
               fill="#87888C"
             />
           </svg>
-          <h3>Order</h3>
+          <h3><Link className="link" to={'/stores/'}>Store</Link></h3>
         </div>
         <div className="side-items">
           <svg className="svg"

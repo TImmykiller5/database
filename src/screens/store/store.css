@@ -1,0 +1,98 @@
+.store-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.store-instance{
+    height:200px;
+    border: 1px solid rgb(48, 50, 55);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-radius: 10px;
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+.store-instance-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #21222D;
+    border-radius: 10px;
+}
+
+.store-instance-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    margin: 0 0 0 15px ;   
+}
+
+.store-instance-details h4{
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+    
+    display: flex;
+    align-items: center;
+}
+
+.store-instance-details-cont{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dActive{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+    /* transition: ; */
+    /* position: relative; */
+    transition: all 2s ease-in,  opacity 1s ease;
+    max-height: 1000px;
+    overflow: hidden;
+
+
+}
+
+.dInactive{
+    content: 'hello';
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY();
+    /* position: absolute; */
+    max-height: 0px;
+    overflow: hidden;
+    transition:all 1.5s ease-out, opacity 1.5s ease-in;
+
+
+    /* height: 0px; */
+}
+
+.add-store-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+   
+}
+
+.add-store-form input{
+    width: 60%;
+    height: 30px;
+    background-color: #323442;
+    border: 0px;
+    color: aliceblue;
+    border-radius: 10px;
+    padding-left: 10px;
+
+}
+.store-edit-form input{
+    width: 20vw;
+    height: 25px;
+    background-color: #323442;
+    border: 0px;
+    color: aliceblue;
+    border-radius: 10px;
+    padding-left: 10px;
+}

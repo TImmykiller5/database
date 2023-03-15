@@ -35,7 +35,6 @@ function TransactionScreen(Product) {
     setDate(e.target[2].value);
     setStores(e.target[3].value);
 
-    // console.log( produce, stores, date, quantity)
   };
 
   const [display, setDisplay] = useState(false);
@@ -165,7 +164,7 @@ function TransactionScreen(Product) {
       </div>
 
       <div className="transaction-record-cont">
-        {record.map((rec) => (
+        {record?.map((rec) => (
           <div className={`transaction-record
            `}>
             <div>{rec.id}</div>

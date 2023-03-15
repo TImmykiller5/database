@@ -1,52 +1,97 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./TopProducts.css";
+import { useSelector, useDispatch } from "react-redux";
+import { getTopProduct } from "../../actions/inventoryActions";
+import { proxy } from "../../actions/inventoryActions";
+import axios from "axios";
 
 function TopProducts() {
+  const [topP, setTopProduct] = useState({ topProduct: {} });
+  const TopThree = topP.topProduct;
+  console.log(topP);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        setTopProduct({ ...topP, loading: true });
+        const { data } = await axios.get(`${proxy}db/get-top-product/`);
+        setTopProduct({ topProduct: data, loading: false });
+      } catch (error) {
+        setTopProduct({ err: error, loading: false, error: true });
+      }
+    };
+
+    getProduct();
+  }, [dispatch]);
+
   return (
+    // total &&
     <div className="main2">
       <div className="top-products">
         <h2>Top Products</h2>
+
         <div className="top-list">
           <div className="top-list-numbering">
             <p>#</p>
             <p>Name</p>
             <p>Popularity</p>
             <p>Sales</p>
-            </div>
-          <div className="top-list-item">
-            <div className="Product-Position" style={{"fontWeight":"500"}}>01</div>
-            <div className="Product-Name"  style={{"fontWeight":"500"}}>Home Decore Range</div>
-            <div className="Product-popularity"><div className="bar"  style={{"--color":"#FCB859", "--barWidth":"46%"}}></div></div>
-            <div className="Product-sales Sales-box" style={{"--bgcolor":"rgb(252 184 89 / 0.12)", "--color":"#FCB859"}}>46%</div>
           </div>
-          <div className="top-list-item">
-            <div className="Product-Position" style={{"fontWeight":"500"}}>02</div>
-            <div className="Product-Name" style={{"fontWeight":"500"}}>Disney Princess Dress</div>
-            <div className="Product-popularity"><div className="bar"  style={{"--color":"#A9DFD8", "--barWidth":"17%"}}></div></div>
-            <div className="Product-sales Sales-box"  style={{"--bgcolor":"rgb(169 223 216 / 0.12)", "--color":"#A9DFD8"}}>17%</div>
-          </div>
-          <div className="top-list-item">
-            <div className="Product-Position" style={{"fontWeight":"500"}}>03</div>
-            <div className="Product-Name" style={{"fontWeight":"500"}}>Bathroom Essentials</div>
-            <div className="Product-popularity"><div className="bar"  style={{"--color":"#28AEF3", "--barWidth":"19%"}}></div></div>
-            <div className="Product-sales Sales-box" style={{"--bgcolor":"rgb(40 174 243 / 0.12)", "--color":"#28AEF3"}}>19%</div>
-          </div>
-          <div className="top-list-item">
-            <div className="Product-Position" style={{"fontWeight":"500"}}>04</div>
-            <div className="Product-Name" style={{"fontWeight":"500"}}>Apple Smartwatch</div>
-            <div className="Product-popularity"><div className="bar"  style={{"--color":"#F2C8ED", "--barWidth":"29%"}}></div></div>
-            <div className="Product-sales Sales-box" style={{"--bgcolor":"rgb(242 200 237 / 0.12)", "--color":"#F2C8ED"}}>29%</div>
-          </div>
+          {TopThree?.length > 1 &&
+            TopThree?.map((product, i = 0) => {
+              const colors = ["#FCB859", "#A9DFD8", "#28AEF3", "#F2C8ED"];
+              const transColors = [
+                "rgb(252 184 89 / 0.12)",
+                "rgb(169 223 216 / 0.12)",
+                "rgb(40 174 243 / 0.12)",
+                "rgb(242 200 237 / 0.12)",
+              ];
+              const total = TopThree.reduce(
+                (acc, prod) => (acc += prod.quantity),
+                0
+              );
+              const percent = Math.round(100 * (product.quantity / total));
+
+              i++;
+              return (
+                <div className="top-list-item" key={i}>
+                  <div
+                    className="Product-Position"
+                    style={{ fontWeight: "500" }}
+                  >
+                    0{i}
+                  </div>
+                  <div className="Product-Name" style={{ fontWeight: "500" }}>
+                    {product.productName}
+                  </div>
+                  <div className="Product-popularity">
+                    <div
+                      className="bar"
+                      style={{
+                        "--color": colors[i - 1],
+                        "--barWidth": `${percent}%`,
+                      }}
+                    ></div>
+                  </div>
+                  <div
+                    className="Product-sales Sales-box"
+                    style={{
+                      "--bgcolor": transColors[i - 1],
+                      "--color": colors[i - 1],
+                    }}
+                  >
+                    {percent}%
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
       <div className="customer-fulfilment">
-      <div className="progress">
-        
+        <div className="progress"></div>
       </div>
-      </div>
-      
-
-
     </div>
   );
 }
