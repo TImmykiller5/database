@@ -10,7 +10,7 @@ import {
   TOP_PRODUCT_FAIL,
 } from "../constants/inventoryConstants";
 import axios from "axios";
-export const proxy = "http://127.0.0.1:8000/";
+export const proxy = "https://web-production-a58f.up.railway.app/";
 
 export const postTransaction = (transaction) => async (dispatch) => {
   try {
