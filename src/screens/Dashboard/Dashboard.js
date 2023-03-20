@@ -6,15 +6,29 @@ import TopProducts from '../../component/topProducts/TopProducts'
 import Earnings from '../../component/earnings/Earnings'
 import { getTransactionRecord, getTopProduct } from '../../actions/inventoryActions'
 import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { proxy } from '../../actions/inventoryActions'
 
 function Dashboard() {
   const date = new Date().toJSON().split('T')[0].split('-')
   const params = {year:date[0], month:date[1], day:date[2]}
   const dispatch = useDispatch()
+  const [topPro, setTopProduct] = useState({ topProduct: {} });
+
   useEffect(() => {
-    dispatch(getTransactionRecord(params)
-    )
+    dispatch(getTransactionRecord(params))
+    const getProduct = async () => {
+      try {
+        setTopProduct({ ...topPro, loading: true });
+        const { data } = await axios.get(`${proxy}db/get-top-product/`);
+        setTopProduct({ topProduct: data, loading: false });
+      } catch (error) {
+        setTopProduct({ err: error, loading: false, error: true });
+      }
+    };
+
+    getProduct();
     // dispatch(getTopProduct());
   },[])
   return (
@@ -23,9 +37,9 @@ function Dashboard() {
         
         <div className='Main-View'>
           <div className='data'>
-          <div> <TodaySales/> </div>
-          <div> <TopProducts/> </div>
-          <div> <Earnings/> </div>
+          <div> <TodaySales topP={topPro.topProduct && topPro}/> </div>
+          <div> <TopProducts topP={topPro.topProduct && topPro}/> </div>
+          <div> <Earnings /> </div>
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ import {
   postTransaction,
   getTransactionRecord,
 } from "../../actions/inventoryActions";
+import axios from "axios";
+import { proxy } from "../../actions/inventoryActions";
 
 function TransactionScreen(Product) {
   const dispatch = useDispatch();
@@ -19,8 +21,9 @@ function TransactionScreen(Product) {
   const transactionRecord = useSelector((state) => state.transactionRecord);
   const { err = error, loadingT = loading, record } = transactionRecord;
 
-  const store = product.store;
-
+  const[store, setStore] = useState({st:''})
+  const allStores = store.st
+  
   const [produce, setProduce] = useState(product.name);
   const [quantity, setQuantity] = useState(0);
   const [stores, setStores] = useState();
@@ -43,8 +46,23 @@ function TransactionScreen(Product) {
       dispatch(getProducts());
     }
     dispatch(getTransactionRecord());
-  }, [dispatch]);
 
+    const getStore = async () => {
+      try {
+        setStore({  loading: true });
+        const { data } = await axios.get(`${proxy}db/store/`);
+        setStore({ st: data, loading: false });
+        // console.log(store)
+  
+      } catch (error) {
+        setStore({ err: error, loading: false, error: true });
+      }
+    };
+    // console.log(store)
+
+    getStore()
+    
+  }, []);
   const post = () => {
     dispatch(
       postTransaction({
@@ -58,7 +76,9 @@ function TransactionScreen(Product) {
   };
 
   return (
+    
     <div className="trans-main">
+      {console.log(store)}
       <div>
         <div></div>
       </div>
@@ -102,7 +122,9 @@ function TransactionScreen(Product) {
                 <label>
                   <h3>Store</h3>
                   <select name="Store" required>
-                    {store?.map((s) => (
+                    {console.log(store)}
+                    {
+                    allStores && allStores?.map((s) => (
                       <option value={s.name}>{s.name}</option>
                     ))}
                   </select>
@@ -164,8 +186,8 @@ function TransactionScreen(Product) {
       </div>
 
       <div className="transaction-record-cont">
-        {record?.map((rec) => (
-          <div className={`transaction-record
+        {record?.map((rec,i) => (
+          <div key={i} className={`transaction-record
            `}>
             <div>{rec.id}</div>
             <div>{rec.ProductName}</div>

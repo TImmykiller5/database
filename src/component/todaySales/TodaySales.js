@@ -1,6 +1,7 @@
 import React, {  useEffect, useState } from "react";
 import "./TodaySales.css";
 import { useSelector } from "react-redux";
+import '../../../node_modules/react-vis/dist/style.css';
 import { 
   XYPlot,
   XAxis,
@@ -8,24 +9,22 @@ import {
   VerticalGridLines,
   HorizontalGridLines,
   VerticalBarSeries,
-  VerticalBarSeriesCanvas
-
+  DiscreteColorLegend,
+  LabelSeries,
+  
 } from "react-vis";
 
 
-function TodaySales() {
-  const data = [
-    {x: 0, y: 8},
-    {x: 1, y: 5},
-    {x: 2, y: 4},
-    {x: 3, y: 9},
-    {x: 4, y: 1},
-    {x: 5, y: 7},
-    {x: 6, y: 6},
-    {x: 7, y: 3},
-    {x: 8, y: 2},
-    {x: 9, y: 0}
-  ];
+
+function TodaySales(topP) {
+//   const greenData = [{x: 'A', y: 10}, {x: 'B', y: 5}, {x: 'C', y: 15}];
+
+// const blueData = [{x: 'A', y: 12}, {x: 'B', y: 2}, {x: 'C', y: 11}];
+
+// const labelData = greenData.map((d, idx) => ({
+//   x: d.x,
+//   y: Math.max(greenData[idx].y, blueData[idx].y)
+// }));
   const transactionRecord = useSelector((state) => state.transactionRecord);
   const {  record } = transactionRecord;
   const [tSale, setTsale] = useState({});
@@ -35,7 +34,18 @@ function TodaySales() {
   function getNum(date) {
     return Number(date?.transactionDate.split("T")[0].split("-")[2]);
   }
+  const TopThree = topP.topP?.topProduct;
+  const data1 = TopThree.length > 0 && TopThree?.map((pr, i)=>{
+    i++
+    return ({x:pr.productName, y:pr.quantity, color:i})
+  })
 
+  const data2 = TopThree.length > 0 && TopThree?.map((pr, i)=>{
+    i++
+    return ({x:pr.productName, y:pr.stock})
+  })
+
+  console.log(data1, data2)
   const todaysDate = new Date().getDate();
   const today = new Date();
   const yesterdaysDate = new Date(today);
@@ -74,7 +84,6 @@ function TodaySales() {
     });
     setUnparsed({ todaySales: todayTotal, YesSales: yesTotal });
   }, [record]);
-
   const { YesSales, todaySales } = tSale;
   const { todayP, yesterdayP } = productSold;
   const { YesSales: Ysales, todaySales: tSales } = unparsed;
@@ -219,17 +228,49 @@ function TodaySales() {
           </div>
         </div>
       </div>
+      
       <div className="level"><div className="App">
-      <XYPlot width={300} height={300} stackBy="y">
+      {/* <XYPlot width={400} height={300} > */}
+      <XYPlot xType='ordinal' width={400} height={300} stackBy="y"  colorRange={["#FCB859", "#F2C8ED", "#A9DFD8", "#28AEF3",]}> 
+      
+
+
+           {/* <VerticalGridLines />  */}
+           {/* <HorizontalGridLines />  */}
+           {/*  */}
+         <XAxis />
+          <YAxis />
+          <DiscreteColorLegend
+            style={{color:'white', position: 'absolute', right: '50px', top: '10px'}}
+            orientation="horizontal"
+            items={[
+              {
+                title: 'Sold',
+                color: '#FCB859'
+              },
+              {
+                title: 'Remaining Stock',
+                color: '#2B2A36'
+              }
+            ]}
+          />
+          < VerticalBarSeries   style={{rx:'6' }} barWidth={0.35} colorType='category' stroke={0} data={data1} />
+          < VerticalBarSeries fill='#2B2A36' style={{rx: '7'}} barWidth={0.35} stroke={0} data={data2} />
+        </XYPlot>
+
+{/* <XYPlot xType="ordinal" width={300} height={300} xDistance={100}> */}
+{/* <XYPlot xType="ordinal" width={400} height={300} stackBy='y'>
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />
           <YAxis />
-          < VerticalBarSeries data={[{x: 2, y: 10}, {x: 4, y: 5}, {x: 5, y: 15}]} />
-          < VerticalBarSeries data={[{x: 2, y: 12}, {x: 4, y: 2}, {x: 5, y: 11}]} />
-        </XYPlot>
+          <VerticalBarSeries style={{rx: '10', ry:'4' }} className="vertical-bar-series-example" barWidth={0.3} data={[{x: 'Am', y: 12}, {x: 'B', y: 2}, {x: 'C', y: 11}]} />
+          <VerticalBarSeries barWidth={0.3} style={{rx: '10', ry:'4' }} data={[{x: 'Am', y: 10}, {x: 'B', y: 5}, {x: 'C', y: 15}]} />
+        </XYPlot> */}
       </div></div>
+      
     </div>
+    
   );
 }
 

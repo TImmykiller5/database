@@ -30,7 +30,7 @@ h2{
 }
 
 .level{
-    padding: 100px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
     background-color: #21222D;
     border-radius: 15px;
     
@@ -50,3 +50,17 @@ h2{
 .big-svg{
     
 }
+
+.rv-xy-plot__grid-lines__line{
+    /* stroke-width: 1; */
+    stroke: grey;
+}
+
+.rv-xy-plot__axis__line{
+    stroke: grey;
+    
+}
+
+.rv-discrete-color-legend-item__title {
+    color: aliceblue;
+  }

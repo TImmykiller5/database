@@ -8,18 +8,18 @@ function Inventory() {
       <h3>Overall Inventory</h3>
       <div className="inventoryCont">
         <div className="inventoryItem inventLine">
-          <h3>Categories</h3>
+          <h3>Products</h3>
           <div>
           <h3 className="countInStock">14</h3>
-          <p className="inventory-highlight">Last 7 days</p>
+          <p className="inventory-highlight">All Products</p>
           </div>
         </div>
         <div className="inventoryItem inventLine ">
-          <h3>Total Products</h3>
+          <h3>Total Sale</h3>
           <div className="invenItem2">
             <div>
               <h3>868</h3>
-              <p className="inventory-highlight ">Last 7 days</p>
+              <p className="inventory-highlight ">Last 30 days</p>
             </div>
             <div>
               <h3>$2345.98</h3>
@@ -32,7 +32,7 @@ function Inventory() {
           <div className="invenItem2">
             <div>
               <h3>5</h3>
-              <p className="inventory-highlight">Last 7 days</p>
+              <p className="inventory-highlight">Last 30 days</p>
             </div>
             <div>
               <h3>$454.89</h3>
@@ -41,11 +41,11 @@ function Inventory() {
           </div>
         </div>
         <div className="inventoryItem ">
-          <h3>Low Stocks</h3>
+          <h3>Stock</h3>
           <div className="invenItem2">
             <div>
               <h3>12</h3>
-              <p className="inventory-highlight">Ordered</p>
+              <p className="inventory-highlight">In Stock</p>
             </div>
             <div>
               <h3>2</h3>

@@ -51,7 +51,13 @@ function App() {
         {
           path: "/stores",
           element: <Store/>
+        },
+
+        {
+          path: "/transactions",
+          element: <TransactionScreen/>
         }
+
       ]
   }
 ])

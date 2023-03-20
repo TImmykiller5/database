@@ -86,7 +86,7 @@ function SideBar() {
               stroke-linejoin="round"
             />
           </svg>
-          <h3>Product</h3>
+          <h3><Link className="link" to={'/transactions'}>Transactions</Link></h3>
         </div>
         <div className="side-items">
         <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">

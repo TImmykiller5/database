@@ -5,25 +5,16 @@ import { getTopProduct } from "../../actions/inventoryActions";
 import { proxy } from "../../actions/inventoryActions";
 import axios from "axios";
 
-function TopProducts() {
-  const [topP, setTopProduct] = useState({ topProduct: {} });
-  const TopThree = topP.topProduct;
-  console.log(topP);
+function TopProducts(topP) {
+  const TopThree = topP.topP?.topProduct;
+  // console.log(topP);
+  // console.log(TopThree)
+
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getProduct = async () => {
-      try {
-        setTopProduct({ ...topP, loading: true });
-        const { data } = await axios.get(`${proxy}db/get-top-product/`);
-        setTopProduct({ topProduct: data, loading: false });
-      } catch (error) {
-        setTopProduct({ err: error, loading: false, error: true });
-      }
-    };
-
-    getProduct();
+   
   }, [dispatch]);
 
   return (
