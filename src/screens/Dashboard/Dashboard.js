@@ -12,7 +12,7 @@ import { proxy } from '../../actions/inventoryActions'
 
 function Dashboard() {
   const date = new Date().toJSON().split('T')[0].split('-')
-  const params = {year:date[0], month:date[1], day:date[2]}
+  const params = {days:2}
   const dispatch = useDispatch()
   const [topPro, setTopProduct] = useState({ topProduct: {} });
 

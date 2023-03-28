@@ -44,8 +44,9 @@ width: auto;
 }
 
 button:hover{
-  background-color: #1366D9;
-  border: 1px solid #1366D9;
+  background-color: #A9DFD8;
+  border: 1px solid #A9DFD8;
+  color: #171821;
 
 
 }

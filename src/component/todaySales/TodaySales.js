@@ -35,17 +35,17 @@ function TodaySales(topP) {
     return Number(date?.transactionDate.split("T")[0].split("-")[2]);
   }
   const TopThree = topP.topP?.topProduct;
-  const data1 = TopThree.length > 0 && TopThree?.map((pr, i)=>{
+  const data1 = TopThree?.length > 0 && TopThree?.map((pr, i)=>{
     i++
     return ({x:pr.productName, y:pr.quantity, color:i})
   })
 
-  const data2 = TopThree.length > 0 && TopThree?.map((pr, i)=>{
+  const data2 = TopThree?.length > 0 && TopThree?.map((pr, i)=>{
     i++
     return ({x:pr.productName, y:pr.stock})
   })
 
-  console.log(data1, data2)
+  // console.log(data1, data2)
   const todaysDate = new Date().getDate();
   const today = new Date();
   const yesterdaysDate = new Date(today);
@@ -53,25 +53,25 @@ function TodaySales(topP) {
   yesterdaysDate.setDate(yesterdaysDate.getDate() - 1);
 
   useEffect(() => {
-    const todayTotal = record.reduce((acc, transaction) => {
+    const todayTotal = record?.reduce((acc, transaction) => {
       if (getNum(transaction) === todaysDate) {
         acc += Number(transaction.totalPrice);
       }
       return acc;
     }, 0);
 
-    const yesTotal = record.reduce((acc, transaction) => {
+    const yesTotal = record?.reduce((acc, transaction) => {
       if (getNum(transaction) === yesterdaysDate.getDate())
         acc += Number(transaction.totalPrice);
       return acc;
     }, 0);
 
-    const pSoldT = record.reduce((acc, sale) => {
+    const pSoldT = record?.reduce((acc, sale) => {
       if (getNum(sale) === todaysDate){acc+=sale.quantity}
       return acc
   },0)
 
-    const pSoldY = record.reduce((acc, sale) => {
+    const pSoldY = record?.reduce((acc, sale) => {
       if (getNum(sale) === yesterdaysDate.getDate()){acc+=sale.quantity}
       return acc
   },0)
@@ -79,8 +79,8 @@ function TodaySales(topP) {
 
 
     setTsale({
-      todaySales: todayTotal.toLocaleString("en-US"),
-      YesSales: yesTotal.toLocaleString("en-US"),
+      todaySales: todayTotal?.toLocaleString("en-US"),
+      YesSales: yesTotal?.toLocaleString("en-US"),
     });
     setUnparsed({ todaySales: todayTotal, YesSales: yesTotal });
   }, [record]);
@@ -218,7 +218,7 @@ function TodaySales(topP) {
                   </svg>
                 </div>
               </div>
-              <h2 style={{ fontSize: 30 }}>{record[0]?.ProductName} </h2>
+              <h2 style={{ fontSize: 30 }}>{record && record[0]?.ProductName} </h2>
 
               <p>Top product</p>
               <p style={{ fontSize: 12, color: "#20AEF3" }}>

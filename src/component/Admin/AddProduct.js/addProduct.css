@@ -1,6 +1,6 @@
 .addProduct{
-    height: 600px;
-    width: 600px;
+    height: 500px;
+    width: 400px;
     background-color: #21222D;
     position: relative;
     margin: auto;
@@ -21,4 +21,5 @@
 .Add-Product-Cont{
     display: grid;
     grid-template-rows: 1fr 9fr;
+    justify-content: center;
 }

@@ -34,7 +34,7 @@ function Store() {
 
   const handleSubmitEdit = (e, id) => {
     e.preventDefault();
-    console.log(e, id, nameEdit, addressEdit)
+    // console.log(e, id, nameEdit, addressEdit)
     const store = {
         name: nameEdit,
         address: addressEdit,
@@ -203,7 +203,7 @@ function Store() {
                         key={i}
                         onClick={(e) => {
                           setEdit({ e: !edit.e, key: i });
-                          console.log(edit);
+                          // console.log(edit);
                           setNameEdit(Stor.name);
                           setAddressEdit(Stor.address);
                         }}

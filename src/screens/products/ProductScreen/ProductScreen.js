@@ -11,18 +11,20 @@ import TransactionScreen from "../../TransactionScreen/TransactionScreen";
 function ProductScreen() {
   const inventory = useSelector((state) => state.inventory);
   const { error, loading, product } = inventory;
-  const params = useParams();
-  const dispatch = useDispatch();
+  // const params = useParams();
+  // const dispatch = useDispatch();
   const act = document.getElementById("active");
 
   const [active, setactive] = useState();
   const [render, setRender] = useState("Overview");
-
+  // setactive(act)
   const setBlue = (e) => {
     active ? active.classList.toggle("active") : act.classList.toggle("active");
     setactive(e.target);
     e.target.classList.toggle("active");
     setRender(`${e.target.innerText}`);
+    // console.log(e.target)
+    
   };
   // useEffect(() => {
   //   dispatch(getProduct(params.id));

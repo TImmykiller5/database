@@ -44,7 +44,7 @@ function App() {
           element: <AdminScreen/>
         },
         {
-          path: "/product/:id/",
+          path: "/admin/product/:id/",
           element: <ProductScreen/>
         },
         

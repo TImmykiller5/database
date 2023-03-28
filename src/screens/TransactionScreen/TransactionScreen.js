@@ -30,7 +30,7 @@ function TransactionScreen(Product) {
   const [date, setDate] = useState("");
   const [transactionType, settransactionType] = useState();
 
-  const options = [products.map((p) => ({ value: p.name, label: p.name }))];
+  const options = [products?.map((p) => ({ value: p.name, label: p.name }))];
   const creditHandler = (e) => {
     e.preventDefault();
     setProduce(e.target[0].value);
@@ -42,7 +42,7 @@ function TransactionScreen(Product) {
 
   const [display, setDisplay] = useState(false);
   useEffect(() => {
-    if (products.length === 0) {
+    if (products?.length === 0) {
       dispatch(getProducts());
     }
     dispatch(getTransactionRecord());
@@ -78,7 +78,7 @@ function TransactionScreen(Product) {
   return (
     
     <div className="trans-main">
-      {console.log(store)}
+      {/* {console.log(store)} */}
       <div>
         <div></div>
       </div>
@@ -92,8 +92,8 @@ function TransactionScreen(Product) {
                 <label>
                   <h3>Product</h3>
                   <select name="name" required>
-                    {options.map((o) =>
-                      o.map((p) => (
+                    {options?.map((o) =>
+                      o?.map((p) => (
                         <option
                           selected={p.label === product.name && "selected"}
                           value={p.value}
@@ -122,7 +122,7 @@ function TransactionScreen(Product) {
                 <label>
                   <h3>Store</h3>
                   <select name="Store" required>
-                    {console.log(store)}
+                    {/* {console.log(store)} */}
                     {
                     allStores && allStores?.map((s) => (
                       <option value={s.name}>{s.name}</option>

@@ -14,7 +14,7 @@
 
 .Products-container{
     display: grid;
-    grid-template-rows: 1fr 10fr;
+    grid-template-rows: 1fr 20fr;
 }
 
 .products-header{
@@ -32,6 +32,7 @@
 
 .products-indi{
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(6, 1fr);
 
 }
@@ -40,3 +41,25 @@
     margin: 0.67em;
 }
 
+.product-Link{
+    background-color: #3b3d51;
+    width: fit-content;
+    height: 100%;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    /* display: grid; */
+    /* align-items: center; */
+}
+
+.product-Link :hover{
+    /* border: 1px solid red; */
+    width: fit-content;
+    height: 100%;
+
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    /* background-color: #A9DFD8; */
+  /* border: 1px solid #A9DFD8; */
+  /* color: #171821; */
+
+}

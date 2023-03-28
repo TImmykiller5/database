@@ -7,9 +7,9 @@ import AddProduct from "../AddProduct.js/AddProduct";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Products({ open, set }) {
+function Products({ open, set, ProductList }) {
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
+  const productList = ProductList
   const { error, loading, products } = productList;
 
   useEffect(() => {
@@ -51,8 +51,8 @@ function Products({ open, set }) {
             
             {products?.map((product) => (
               <div className="products-indi" key={product.id}>
-                <div>
-                  <Link to={`/product/${product.id}`}>{product.name}</Link>
+                <div >
+                  <div className='product-Link'><Link to={`/admin/product/${product.id}`} >{product.name}</Link></div>
                 </div>
                 <div>{product.costPrice}</div>
                 <div>{product.sellingPrice}</div>
