@@ -120,7 +120,7 @@ function TodaySales(topP) {
                   />
                 </svg>
               </div>
-              <h2 style={{ fontSize: 30 }}>₦{todaySales}</h2>
+              <h2 style={{ fontSize: 30 }}>₦{todaySales ? todaySales : 0}</h2>
               <p>Total Sales</p>
               <p style={{ fontSize: 12, color: "#FEB95A" }}>
                 {tSales > Ysales ? (
@@ -176,7 +176,7 @@ function TodaySales(topP) {
                   </svg>
                 </div>
               </div>
-              <h2 style={{ fontSize: 30 }}>{todayP}</h2>
+              <h2 style={{ fontSize: 30 }}>{todayP ? todayP : 0}</h2>
               <p>Products Sold</p>
               <p style={{ fontSize: 12, color: "#F2C8ED" }}>
               {todayP > yesterdayP ? (
@@ -218,7 +218,7 @@ function TodaySales(topP) {
                   </svg>
                 </div>
               </div>
-              <h2 style={{ fontSize: 30 }}>{record && record[0]?.ProductName} </h2>
+              <h2 style={{ fontSize: 30 }}>{record && record[0]?.ProductName } </h2>
 
               <p>Top product</p>
               <p style={{ fontSize: 12, color: "#20AEF3" }}>

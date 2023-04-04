@@ -47,6 +47,7 @@ function TopProducts(topP) {
 
               i++;
               return (
+                TopThree?(
                 <div className="top-list-item" key={i}>
                   <div
                     className="Product-Position"
@@ -75,7 +76,7 @@ function TopProducts(topP) {
                   >
                     {percent}%
                   </div>
-                </div>
+                </div>):(<div>{console.log('work')}No record</div>)
               );
             })}
         </div>

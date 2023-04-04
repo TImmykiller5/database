@@ -24,10 +24,12 @@ function Dashboard() {
         const { data } = await axios.get(`${proxy}db/get-top-product/`);
         setTopProduct({ topProduct: data, loading: false });
       } catch (error) {
+        console.log('error')
         setTopProduct({ err: error, loading: false, error: true });
       }
+      console.log(topPro)
     };
-
+    
     getProduct();
     // dispatch(getTopProduct());
   },[])
@@ -38,7 +40,7 @@ function Dashboard() {
         <div className='Main-View'>
           <div className='data'>
           <div> <TodaySales topP={topPro.topProduct && topPro}/> </div>
-          <div> <TopProducts topP={topPro.topProduct && topPro}/> </div>
+          <div> <TopProducts topP={topPro && topPro}/> </div>
           <div> <Earnings /> </div>
           </div>
         </div>
