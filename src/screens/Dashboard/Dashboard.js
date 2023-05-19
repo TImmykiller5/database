@@ -41,7 +41,7 @@ function Dashboard() {
           <div className='data'>
           <div> <TodaySales topP={topPro.topProduct && topPro}/> </div>
           <div> <TopProducts topP={topPro && topPro}/> </div>
-          <div> <Earnings /> </div>
+          <div> <Earnings topP={topPro.topProduct && topPro}/> </div>
           </div>
         </div>
       </div>

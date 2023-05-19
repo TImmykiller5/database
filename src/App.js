@@ -14,6 +14,7 @@ import Search from './component/search/Search';
 import ProductScreen from './screens/products/ProductScreen/ProductScreen';
 import TransactionScreen from './screens/TransactionScreen/TransactionScreen';
 import Store from './screens/store/Store';
+import StoreDetails from './screens/StoreDetails/StoreDetails';
 
 function App() {
   const Layout = () => {
@@ -51,6 +52,11 @@ function App() {
         {
           path: "/stores",
           element: <Store/>
+        },
+
+        {
+          path: "/store/:id/",
+          element: <StoreDetails/>
         },
 
         {

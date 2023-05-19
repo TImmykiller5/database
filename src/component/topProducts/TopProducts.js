@@ -6,7 +6,11 @@ import { proxy } from "../../actions/inventoryActions";
 import axios from "axios";
 
 function TopProducts(topP) {
-  const TopThree = topP.topP?.topProduct;
+  const TopThree = topP?.topP?.topProduct[0];
+  
+
+  // console.log(TopThree)
+  // TopThree.sort((a, b) => (a.quantity > b.quantity) ? 1 : -1) 
   // console.log(topP);
   // console.log(TopThree)
 

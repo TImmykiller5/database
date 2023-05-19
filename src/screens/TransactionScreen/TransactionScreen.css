@@ -134,3 +134,30 @@
 .stock-transaction{
     color: #19bc55;
 }
+
+.transfer-form label{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.transfer-form span{
+    font-size: 1.3rem;
+}
+.transfer-form select, input{
+    width: 80%;
+}
+
+.transfer-form-cont{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.transfer-form{
+    flex: 50%;
+}
+
+.transfer-grid{
+    display: flex;
+}

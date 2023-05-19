@@ -34,7 +34,9 @@ function TodaySales(topP) {
   function getNum(date) {
     return Number(date?.transactionDate.split("T")[0].split("-")[2]);
   }
-  const TopThree = topP.topP?.topProduct;
+  const TopThree = topP.topP?.topProduct[0];
+  console.log(TopThree)
+
   const data1 = TopThree?.length > 0 && TopThree?.map((pr, i)=>{
     i++
     return ({x:pr.productName, y:pr.quantity, color:i})
@@ -218,7 +220,7 @@ function TodaySales(topP) {
                   </svg>
                 </div>
               </div>
-              <h2 style={{ fontSize: 30 }}>{record && record[0]?.ProductName } </h2>
+              <h2 style={{ fontSize: 30 }}>{TopThree && TopThree[0]?.productName } </h2>
 
               <p>Top product</p>
               <p style={{ fontSize: 12, color: "#20AEF3" }}>

@@ -3,6 +3,7 @@ import "./store.css";
 import { useState } from "react";
 import { proxy } from "../../actions/inventoryActions";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Store() {
   const [postStore, setPostStore] = useState({});
@@ -68,6 +69,7 @@ function Store() {
   const [edit, setEdit] = useState({ e: false });
   const [stores, setStores] = useState({});
 
+
   useEffect(() => {
     const getstores = async () => {
       try {
@@ -82,6 +84,8 @@ function Store() {
     getstores();
   }, [postStore.store]);
   const { stores: storeList } = stores;
+  // console.log(storeList)
+
   return (
     <div className="Store-main">
       <div className="store-header">
@@ -187,7 +191,9 @@ function Store() {
             );
           } else {
             return (
+
               <div>
+                <Link to={`/store/${Stor.id}/`}>
                 <div className="store-instance" key={i}>
                   <div className="store-instance-name">example branch</div>
                   {/* {console.log(i)} */}
@@ -213,6 +219,7 @@ function Store() {
                     </div>
                   </div>
                 </div>
+                </Link>
               </div>
             );
           }

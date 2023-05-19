@@ -25,8 +25,9 @@
 }
 
 .products-list{
-    display: grid;
-    grid-template-rows: repeat(11, 1fr);
+    display: flex;
+    flex-direction: column;
+    gap:10px;
 
 }
 
