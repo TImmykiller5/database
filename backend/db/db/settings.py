@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'db.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway', 
+        'USER': 'postgres',
+        'PASSWORD': 'iePmFERPpjupCYZjg6AD',
+        'HOST': 'containers-us-west-203.railway.app', 
+        'PORT': '6410',
     }
 }
 
@@ -137,3 +141,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # }
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = ["https://web-production-a58f.up.railway.app/"]

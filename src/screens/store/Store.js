@@ -193,17 +193,16 @@ function Store() {
             return (
 
               <div>
-                <Link to={`/store/${Stor.id}/`}>
                 <div className="store-instance" key={i}>
-                  <div className="store-instance-name">example branch</div>
+                  <Link to={`/store/${Stor.id}/`} className="store-instance-name">example branch</Link>
                   {/* {console.log(i)} */}
                   <div className="store-instance-details-cont">
-                    <div className="store-instance-details">
+                    <Link to={`/store/${Stor.id}/`} className="store-instance-details">
                       <h4>{Stor.name}</h4>
                       <span>{Stor.address}</span>
                       <span>some detail</span>
                       <span>08099999999</span>
-                    </div>
+                    </Link>
                     <div>
                       <button
                         key={i}
@@ -219,7 +218,6 @@ function Store() {
                     </div>
                   </div>
                 </div>
-                </Link>
               </div>
             );
           }

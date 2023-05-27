@@ -19,7 +19,7 @@ function TransactionScreen(Product) {
   const inventory = useSelector((state) => state.inventory);
   const { error, loading, product } = inventory;
   const transactionRecord = useSelector((state) => state.transactionRecord);
-  const { err = error, loadingT = loading, record } = transactionRecord;
+  const { err = error, Loading, record } = transactionRecord;
 
   const [store, setStore] = useState({ st: "" });
   const allStores = store.st;
@@ -191,12 +191,12 @@ function TransactionScreen(Product) {
                   post();
                 }}
                 disabled={
-                  produce && quantity && date && store && transactionType
+                   produce && quantity && date && store && transactionType
                     ? false
                     : true
                 }
               >
-                Post Transaction
+                {Loading ? 'loading'  : 'Post Transaction'}
               </button>
             </div>
           </div>

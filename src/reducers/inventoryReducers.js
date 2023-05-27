@@ -36,13 +36,13 @@ export const postTransactionReducer = (state = {}, action) => {
 export const transactionRecordReducer = (state = {record:[]}, action) => {
   switch (action.type) {
     case TRANSACTION_RECORD_REQUEST:
-      return { loading: true, record: [] };
+      return { Loading: true, record: [] };
 
     case TRANSACTION_RECORD_SUCCESS:
-      return { loading: false, record: action.payload };
+      return { Loading: false, record: action.payload };
 
     case TRANSACTION_RECORD_FAIL:
-      return { loading: false, error: action.payload };
+      return { Loading: false, error: action.payload };
 
     default:
       return state;
